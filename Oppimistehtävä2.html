@@ -1,5 +1,383 @@
 <!DOCTYPE html>
+<html lang="fi">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Tyylit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+  
 </head>
+
+<body>
+<!--Navigaatiopalkki-->
+<nav class="navbar navbar-expand-sm">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">Pihlajanmarja</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+
+              <!-- Alasvetovalikko: Palvelut ja tuotteet -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Palvelut ja tuotteet</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#sidonta">Sidonta ja Koristelut</a></li>
+                      <li><a class="dropdown-item" href="#lahjat">Lahjat ja tarvikkeet</a></li>
+                      <li><a class="dropdown-item" href="#kurssit">Tulevat kurssit</a></li>
+                  </ul>
+              </li>
+              <!-- Galleria -->
+              <li class="nav-item">
+                  <a class="nav-link" href="#galleria">Galleria</a>
+              </li>
+              <!-- Ota yhteyttä -->
+              <li class="nav-item">
+                  <a class="nav-link" href="#yhteyttä">Ota yhteyttä</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+<!-- Takaisin ylös -ikoni -->
+<a href="#" class="btn btn-primary position-fixed bottom-0 end-0 m-3" role="button" aria-label="Takaisin ylös">
+  <i class="bi bi-arrow-up-circle"></i> 
+</a>
+
+  <!-- Otsikko ja taustakuva -->
+  <header class="header">
+    <div class="header-overlay text-center">
+      <h1>Kukkakauppa Pihlajanmarja</h1>
+    </div>
+  </header>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Gird/Etusivun infoa-->
+<div class="container mt-5">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="text-content text-center me-4">
+      <h2>Tervetuloa Pihlajanmarjaan!</h2>
+      <p class="mt-4"></p>
+      <p>Huolella valitut kukat elämäsi jokaiseen hetkeen. Korkealaatuiset tuotteet, laaja valikoima
+        ja ammattitaitoinen henkilökuntamme on valmis toteuttamaan toiveesi valoisassa ja tunnelmallisessa
+        liikkeessämme.
+      </p>
+      <p class="mt-4"></p>
+      <p>Avoinna<br>
+        ma-pe 9-17<br>
+        la 9-16<br>
+        su 11-17<br></p>
+    </div>
+    <div class="image-container">
+      <figure>
+        <img src="Kuvat/pexels-karolina-grabowska-4022210.jpg" alt="Kuva 1" class="img-fluid rounded-corner">
+      </figure>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--kortit ja Grid yhdistettynä-->
+<div class="container custom-mt" id="sidonta">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card flex-row">
+        <img src="Kuvat/pexels-nietjuh-2014698.jpg" class="card-img-left" alt="Kortin kuva"> 
+        <div class="card-body">
+          <h5 class="card-title">Surusidonta</h5>
+          <p class="card-text">Autamme suunnittelemaan vainajan näköisen siunaus- ja muistotilaisuuden. Sidomme yksilölliset hautalaitteet, 
+            hautakimput, hauta-asetelmat ja arkunkoristeet, sekä kappelin ja muistotialisuuden kukkakoristelun.  
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card flex-row">
+        <img src="Kuvat/pexels-inna-lesyk-67454-566450.jpg" class="card-img-left" alt="Kortin kuva">
+        <div class="card-body">
+          <h5 class="card-title">Morsiussidonta</h5>
+          <p class="card-text">Neljä vuoden aikaan luovat lukemattomasti mahdollisuuksia suunnitella persoonalliset hääkukat juuri teidän ihanimpaan päiväänne.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card flex-row">
+        <img src="Kuvat/pexels-asadphoto-169190.jpg" class="card-img-left" alt="Kortin kuva"> 
+        <div class="card-body">
+          <h5 class="card-title">Juhlakoristelut</h5>
+          <p class="card-text">Toteutamme kukka-asetelmat ja tilakoristelut kaikenlaisiin juhlatilaisuuksiin. </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card flex-row">
+        <img src="Kuvat/pexels-olly-3766221.jpg" class="card-img-left" alt="Kortin kuva">
+        <div class="card-body">
+          <h5 class="card-title">Sidontakurssit</h5>
+          <p class="card-text">Järjestämme liikkeessämme kauden teemaan sopivia kukkakursseja joissa tehdään esimerkiksi kukkakimppuja, kransseja ja kukka-asetelmia. Et tarvitse aiempaa kokemusta, sillä kursseilla saat opastusta kukkien käsittelyyn ja sidontatekniikoihin liittyen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--haitari / lahjat ja tarvikkeet-->
+<div class="container custom-mt" id="lahjat">
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    
+    <!-- Korit -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Kortit
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <div class="d-flex align-items-start">
+            <div class="text" style="flex: 1;">
+              <p>Valikoimastamme löydät onnittelu- ja kiitoskortit, kukkakorit ja suruadressit. Tuotteet ovat laadukkaita ja kotimaisia. Korteista ja suruadresseista löydät 
+                myös paikallisten taiteilijoiden tekemiä upeita teoksia. 
+              </p>
+            </div>
+            <div class="image" style="flex: 0 0 auto; margin-left: 20px;">
+              <img src="Kuvat/pexels-george-dolgikh-551816-2072149.jpg" alt="Korit" class="img-fluid" style="max-width: 300px; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Makeiset -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Makeiset
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <div class="d-flex align-items-start">
+            <div class="text" style="flex: 1;">
+              <p>Käsin tehdyt makeiset paikallisesta konditoriosta. Marmeladeja ja suklaata ihanissa pienissä pakkauksissa lahjaksi tai itselle kotiin vietäväksi. </p>
+              </div>
+            <div class="image" style="flex: 0 0 auto; margin-left: 20px;">
+              <img src="Kuvat/pexels-adrien-olichon-1257089-27378717.jpg" alt="Makeiset" class="img-fluid" style="max-width: 300px; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Kukkaruukut -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Kukkaruukut
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <div class="d-flex align-items-start">
+            <div class="text" style="flex: 1;">
+              <p>Kasvit tarvitsevat huolenpitoa, rakkautta ja hellyyttä. Oikeanlaisilla ruukuilla ja oikeanlaisella hoidolla ne ilahduttavat sinua pitkään. 
+                Meiltä löydät sopivat ruukut kasveillesi, niin sisä- kuin ulkokäyttöön. 
+              </p>
+            </div>
+            <div class="image" style="flex: 0 0 auto; margin-left: 20px;">
+              <img src="Kuvat/pexels-minan1398-793012.jpg" alt="Kukkaruukut" class="img-fluid" style="max-width: 300px; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<!--Floristin kommentti-->
+<div class="text-center custom-mt testimonial-text">
+  <p>
+    <i>"Koen, että jokainen kukka on kuin taideteos, ja koen suurta iloa saadessani yhdistää <br/>
+    näitä taideteoksia uudeksi kokonaisuudeksi. Jokainen asiakas antaa myös jälkensä <br/>
+    näihin taideteoksiin ja siten niistä tulee uniikkeja."</i>
+  </p>
+  <p>
+    - <i>Ella Esimerkki, Floristi</i>
+  </p>
+</div>
+
+
+<!--Kurssit - taulukko-->
+
+<div class="container custom-mt" id="kurssit"> 
+  <h2 class="text-center">Tulevat kurssit</h2>
+  <p class="text-center">Hinnat sisältävät kaikki kursseilla tarvittavat materiaalit. Ilmoittaudu kursseille yhteydenottolomakkeella.</p>
+
+ 
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered custom-table">
+      <thead>
+        <tr>
+          <th>Kurssi</th>
+          <th>Päivämäärä</th>
+          <th>Kesto</th>
+          <th>Hinta</th>
+          <th>Kuvaus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Syyskranssi</td>
+          <td>21.09.2024</td>
+          <td>1,5h</td>
+          <td>59 € / osallistuja</td>
+          <td>
+            Tervetuloa tekemään syyskranssi vaikka ulko-oveen tai pöydälle koristeeksi! <br /> Koristeissa hyödynnetään leikkokukkia, kuivakukkia ja luonnonmateriaaleja.
+          </td>
+        </tr>
+        <tr>
+          <td>Kukkakoru</td>
+          <td>28.09.2024</td>
+          <td>1,5h</td>
+          <td>59 € / osallistuja</td>
+          <td>
+            Kaunis kukkakoru ilahduttamaan syksyn juhlia. Kurssilla tehdään kukkakoru ranteeseen <br />
+            tai hiuksiin leikkokukkia ja luonnonmateriaaleja hyödyntäen.
+          </td>
+        </tr>
+        <tr>
+          <td>Kukkakimppu</td>
+          <td>05.10.2024</td>
+          <td>1h</td>
+          <td>45 € / osallistuja</td>
+          <td>
+            Haluatko toteuttaa itse oman kimppusi. Saat parhaat vinkit kukkien sommitteluun, <br />
+            sekä sidot oman kimppusi valitsemistasi leikkokukista ja luonnonmateriaaleista.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Galleria Otsikko -->
+<div class="text-center custom-mt">
+  <h2>Galleria</h2>
+</div>
+
+<!-- Carousel -->
+<div id="galleria" class="carousel slide carousel-fade" data-bs-ride="carousel" > 
+  
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#galleria" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#galleria" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#galleria" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#galleria" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#galleria" data-bs-slide-to="4"></button>
+  </div>
+  
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      
+      <img src="Kuvat/pexels-nadine-wuchenauer-695910-1563650.jpg" alt="Kukka1" class="d-block" >
+      
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="Kuvat/pexels-pixabay-267360.jpg" alt="Kukka2" class="d-block" >
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="Kuvat/pexels-antonmislawsky-226145.jpg" alt="Kukka3" class="d-block" >
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="Kuvat/pexels-anna-siracusa-1331181-2563495.jpg" alt="Kukka4" class="d-block" >
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="Kuvat/pexels-rovenimages-com-344613-949582.jpg" alt="Kukka5" class="d-block" >
+    </div>
+  </div>
+
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#galleria" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#galleria" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+
+ <!-- Yhteydenottolomake -->
+ <div class="container custom-mt" id="yhteyttä">
+  <div class="form-container d-flex flex-column align-items-center"  style="margin-bottom: 6rem;">
+    <h2>Yhteydenottolomake</h2>
+    <form class="w-100">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nimi</label>
+        <input type="text" class="form-control" id="name" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Sähköposti</label>
+        <input type="email" class="form-control" id="email" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="numero" class="form-label">Puhelinnumero</label>
+        <input type="text" class="form-control" id="numero" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="viesti" class="form-label">Vapaa viesti</label>
+        <textarea class="form-control" id="viesti" rows="5" placeholder=""></textarea>
+      </div>
+      <button type="submit" class="btn btn-pihlajanmarja">Lähetä viesti</button>
+    </form>
+  </div>
+</div>
+
+<!--Kiitos viesti / pop up ikkuna-->
+<div class="modal fade" id="thanksModal" tabindex="-1" aria-labelledby="thanksModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="thanksModalLabel">Kiitos!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Viestisi on vastaanotettu. Kiitos yhteydenotostasi! Olemme sinuun yhdeydessä mahdollisimman pian.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); 
+      var thanksModal = new bootstrap.Modal(document.getElementById('thanksModal'));
+      thanksModal.show();
+      
+    });
+  });
+</script>
+</html>

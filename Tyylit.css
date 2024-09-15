@@ -1,0 +1,290 @@
+
+/*Navigaatipalkki*/
+.navbar {
+    background-color: transparent !important; 
+    z-index: 10; 
+}
+
+.navbar-nav .nav-link {
+    color: black; 
+}
+
+.navbar-toggler-icon {
+    background-color: transparent; /*Hampurilaisvalikko*/
+}
+.navbar-nav {
+    margin-left: auto; 
+}
+
+.navbar-brand {
+    font-size: 24px; 
+    
+}
+.navbar-brand {
+    color: black;
+}
+
+
+/* Takaisin ylös -ikonin tyyli */
+.position-fixed {
+    z-index: 1000; 
+}
+
+.btn-primary {
+    background-color: #c0362c; 
+    border: none;
+    border-radius: 50%; 
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary i {
+    color: #fff; 
+}
+
+/* Otsikko ja taustakuva */
+.header {
+    position: relative;
+    height: 600px; 
+    background-image: url('Kuvat/pexels-suzyhazelwood-2831064.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+.header h1 {
+    font-size: 48px; 
+    color: #fff; 
+}
+  
+
+  /*Kukkakauppa etusivu*/
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.rounded-corner {
+
+    width: 300px; 
+    height: auto; 
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center; 
+}
+
+.align-items-center {
+    align-items: center; 
+}
+
+.text-content {
+    max-width: 50%; 
+}
+
+.image-container {
+    flex-shrink: 0; 
+}
+
+.me-4 {
+    margin-right: 1.5rem; 
+}
+  /*Sidonta ja koristelu*/
+  .card {
+    border: none; 
+    box-shadow: none; 
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+/* Pyöreä kuva */
+.card-img-left {
+    border-radius: 50%;
+    object-fit: cover; 
+    width: 300px; 
+    height: 300px; 
+    margin-right: 100px; 
+}
+
+/* Tekstikappaleen tyylit */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center; 
+    padding: 20px;
+    max-width: 400px; 
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin: 0;
+}
+
+  /* Haitari */
+  .accordion-button {
+    background-color: #c0362c; 
+    color: white;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #a82b25; 
+    color: white; 
+  }
+  
+  .accordion-body {
+    background-color: #f8f9fa; 
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding: 1rem;
+}
+
+.accordion-body .text {
+    flex: 1;
+    
+    justify-content: center; 
+    text-align: center; 
+    max-width: 400px; 
+}
+
+.accordion-body img {
+    width: 400px; 
+    height: 400px; 
+    margin-right: 20px; 
+}
+
+
+  /* Taulukko */
+
+
+  .custom-table {
+    background-color: #f8f9fa; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-collapse: collapse; 
+}
+
+.custom-table th, .custom-table td {
+    border: none; 
+    padding: 15px; 
+    vertical-align: middle; 
+}
+
+.custom-table th {
+    background-color: #c0362c;
+    color: white;
+    text-align: center; 
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #e9ecef; 
+}
+
+.custom-table tr:hover {
+    background-color: #f1f3f5; 
+}
+
+.custom-table td:nth-child(4) {
+    font-weight: bold; 
+    color: #a82b25; 
+}
+  
+
+  /* Painikkeet */
+  .btn-pihlajanmarja {
+    background-color: #c0362c; 
+    border-color: #c0362c; 
+    color: white
+  }
+  
+  .btn-pihlajanmarja:hover {
+    background-color: #a82b25; 
+    border-color: #a82b25; 
+  }
+  
+  /* Lomake */
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto; 
+  }
+
+
+/* Kuvakaruselli */
+.carousel-inner img {
+    width: 100%;
+    margin: auto;
+    min-height: 200px; 
+
+}
+#galleria {
+    width:100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+/*hienosäädöt*/
+.custom-mt {
+    margin-top: 10rem; 
+  }
+  
+
+.card {
+    margin-bottom: 70px;
+}
+
+@media (max-width: 768px) {
+    .text-content {
+        max-width: 100%; 
+    }
+    .rounded-corner {
+        width: 100%; 
+    }
+}
+
+.accordion-body img {
+    max-width: 250px; 
+    margin-left: 15px; 
+}
+body {
+    font-family: 'Arabic Typesetting', serif;
+}
+h2, h3, h5 {
+    font-weight: bold;
+}
+
+.testimonial-text p {
+    font-size: 20px;
+}
