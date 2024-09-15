@@ -1,33 +1,25 @@
 
-/*Navigaatipalkki*/
-.navbar {
-    background-color: transparent !important; 
-    z-index: 10; 
-}
-
+/* Navigaatiopalkki */
 .navbar-nav .nav-link {
     color: black; 
 }
 
 .navbar-toggler-icon {
-    background-color: transparent; /*Hampurilaisvalikko*/
+    background-color: transparent; /* Hampurilaisvalikko */
 }
+
 .navbar-nav {
     margin-left: auto; 
 }
 
 .navbar-brand {
     font-size: 24px; 
-    
-}
-.navbar-brand {
     color: black;
 }
 
-
 /* Takaisin ylös -ikonin tyyli */
 .position-fixed {
-    z-index: 1000; 
+    z-index: 1050; 
 }
 
 .btn-primary {
@@ -43,6 +35,13 @@
 
 .btn-primary i {
     color: #fff; 
+}
+
+@media (max-width: 576px) {
+    .btn-primary {
+        width: 40px; /* Tee ikonista hieman pienempi */
+        height: 40px;
+    }
 }
 
 /* Otsikko ja taustakuva */
@@ -77,22 +76,38 @@
     font-size: 48px; 
     color: #fff; 
 }
-  
 
-  /*Kukkakauppa etusivu*/
-  .img-fluid {
-    max-width: 100%;
+/* Kukkakauppa etusivu */
+.img-fluid {
     height: auto;
+    max-width: 300px;
 }
 
 .rounded-corner {
-
     width: 300px; 
-    height: auto; 
+    height: 500px; 
 }
 
 .d-flex {
     display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-md-row {
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column; 
+    }
+    
+    .image-container {
+        margin-top: 1rem; 
+    }
 }
 
 .justify-content-center {
@@ -114,23 +129,44 @@
 .me-4 {
     margin-right: 1.5rem; 
 }
-  /*Sidonta ja koristelu*/
-  .card {
-    border: none; 
-    box-shadow: none; 
+
+/* Sidonta ja koristelu */
+.card {
     display: flex;
     flex-direction: row;
-    align-items: center; 
-    margin-bottom: 20px; 
+    align-items: center;
+    margin-bottom: 20px;
+    border: none; 
+    box-shadow: none; 
 }
 
-/* Pyöreä kuva */
 .card-img-left {
     border-radius: 50%;
-    object-fit: cover; 
-    width: 300px; 
-    height: 300px; 
-    margin-right: 100px; 
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    margin-right: 20px; 
+    border: none; 
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column !important; 
+        align-items: center; 
+    }
+
+    .card-img-left {
+        margin-right: 0 !important; 
+        margin-bottom: 1rem; 
+        width: 150px !important; 
+        height: 150px !important; 
+        border-radius: 50% !important; 
+    }
+
+    .card-body {
+        max-width: 100% !important; 
+        text-align: center; 
+    }
 }
 
 /* Tekstikappaleen tyylit */
@@ -152,18 +188,18 @@
     margin: 0;
 }
 
-  /* Haitari */
-  .accordion-button {
+/* Haitari */
+.accordion-button {
     background-color: #c0362c; 
     color: white;
-  }
-  
-  .accordion-button:not(.collapsed) {
+}
+
+.accordion-button:not(.collapsed) {
     background-color: #a82b25; 
     color: white; 
-  }
-  
-  .accordion-body {
+}
+
+.accordion-body {
     background-color: #f8f9fa; 
     display: flex;
     flex-direction: row;
@@ -173,7 +209,6 @@
 
 .accordion-body .text {
     flex: 1;
-    
     justify-content: center; 
     text-align: center; 
     max-width: 400px; 
@@ -185,11 +220,15 @@
     margin-right: 20px; 
 }
 
+@media (max-width: 768px) {
+    .accordion-body img {
+        max-width: 250px; 
+        margin-left: 15px; 
+    }
+}
 
-  /* Taulukko */
-
-
-  .custom-table {
+/* Taulukko */
+.custom-table {
     background-color: #f8f9fa; 
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -220,46 +259,42 @@
     font-weight: bold; 
     color: #a82b25; 
 }
-  
 
-  /* Painikkeet */
-  .btn-pihlajanmarja {
+/* Painikkeet */
+.btn-pihlajanmarja {
     background-color: #c0362c; 
     border-color: #c0362c; 
-    color: white
-  }
-  
-  .btn-pihlajanmarja:hover {
+    color: white;
+}
+
+.btn-pihlajanmarja:hover {
     background-color: #a82b25; 
     border-color: #a82b25; 
-  }
-  
-  /* Lomake */
-  .form-container {
+}
+
+/* Lomake */
+.form-container {
     max-width: 600px;
     margin: 0 auto; 
-  }
-
+}
 
 /* Kuvakaruselli */
 .carousel-inner img {
     width: 100%;
     margin: auto;
     min-height: 200px; 
-
 }
+
 #galleria {
-    width:100%;
+    width: 100%;
     max-width: 800px;
     margin: auto;
 }
 
-
-/*hienosäädöt*/
+/* Hienosäädöt */
 .custom-mt {
-    margin-top: 10rem; 
-  }
-  
+    margin-top: 8rem; 
+}
 
 .card {
     margin-bottom: 70px;
@@ -270,17 +305,14 @@
         max-width: 100%; 
     }
     .rounded-corner {
-        width: 100%; 
+        max-width: 300px; 
     }
 }
 
-.accordion-body img {
-    max-width: 250px; 
-    margin-left: 15px; 
-}
 body {
     font-family: 'Arabic Typesetting', serif;
 }
+
 h2, h3, h5 {
     font-weight: bold;
 }
