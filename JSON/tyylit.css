@@ -6,23 +6,6 @@ body {
     margin: 0;
     padding: 20px; 
 }
-/*navipalkki*/
-.navbar-nav .nav-link {
-    color: black; 
-}
-
-.navbar-toggler-icon {
-    background-color: transparent; /* Hampurilaisvalikko */
-}
-
-.navbar-nav {
-    margin-left: auto; 
-}
-
-.navbar-brand {
-    font-size: 24px; 
-    color: black;
-}
 
 /*otsikko ja teksti*/
 h1 {
@@ -41,7 +24,6 @@ ul {
 }
 
 li {
-    background-color: #eaeaee; 
     padding: 8px;  
     max-width: 200px; 
     
