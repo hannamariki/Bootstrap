@@ -1,0 +1,22 @@
+{
+    "toteutus": {
+      "nimi": "Digitekniikat DIG007AS2A-3012",
+      "osallistujat": {
+        "lukumaara": 5,
+        "nimet": [
+          "Anna Virtanen",
+          "Matti Laine",
+          "Liisa Korhonen",
+          "Sami Nieminen",
+          "Ella Mäkinen"
+        ]
+      },
+      "aikataulu": {
+        "alkamisaika": "19.08.2024",
+        "loppumisaika": "13.10.2024",
+        "kesto_viikkoina": 8
+      },
+      "kuva": "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+  }
+  
