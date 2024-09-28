@@ -19,7 +19,7 @@
                 return response.json();
             })
             .then(function(data) {
-                    kuva(data);
+                    haeKuva(data);
             })
             .catch(function(error) {
                 document.getElementById("vastaus").innerHTML =
