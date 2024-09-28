@@ -1,0 +1,47 @@
+
+/*tausta*/
+body {
+    font-family: Bahnschrift SemiCondensed, sans-serif; 
+    margin: 0;
+    padding: 20px; 
+}
+
+/*otsikko ja teksti*/
+h1 {
+    color: #0c0c0c; /
+}
+
+p {
+    font-size: 16px; 
+    color: #0c0c0c; /
+}
+
+/*listat*/
+ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+li {
+    padding: 8px;  
+    max-width: 200px; 
+    
+}
+/*kuvat*/
+.kuva-container {
+    display: flex; 
+    align-items: center; 
+}
+
+.kuva {
+   
+    width: 400px; 
+    height: auto; 
+    padding: 20px; 
+}
+/*sisältö*/
+.content {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
