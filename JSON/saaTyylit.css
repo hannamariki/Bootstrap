@@ -1,9 +1,10 @@
 /*elementit*/
-.container {
+.container-fluid {
     display: flex;
     justify-content: flex-start; 
     gap: 20px;
     margin-top: 20px;
+    padding-left: 0;
 }
 
 /*lista*/
