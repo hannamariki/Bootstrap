@@ -9,9 +9,39 @@
         <div id="vastaus"></div>
         <button onclick="navigateToJunat()">Junat</button>
 
-        <script>
-            
+        <h1>Autolla Tampereelle</h1>
+        <p>Millainen keli siellä on?</p>
 
+        <script>
+
+        fetch('https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(responseJson) {
+                console.log(responseJson);
+                    kerro(responseJson);
+            })
+            .catch(function(error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+                    console.log(error); 
+            });
+
+                function haeKuva(data){
+                    var teksti = ""; 
+                    var kuva = data.presets;
+
+                for (var i = 0; i < data.length; i++){
+
+                    teksti += "<h3>" + kuva[i].measuredTime + "</h3>";
+                    teksti += "<p><img src='https://weathercam.digitraffic.fi/" + kuva[i].id + ".jpg' alt='Liikennekamera kuva'></p>";
+
+
+                }
+                document.getElementById("vastaus").innerHTML = teksti;
+
+            }
 
             function navigateToJunat() {
                 window.location.href = "junat.html";
@@ -20,3 +50,4 @@
         </script>
 
 
+    

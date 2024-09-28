@@ -10,6 +10,21 @@
         <button onclick="navigateToLiikennekamerat()">Liikennekamerat</button>
 
         <script>
+        fetch('https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(responseJson) {
+                console.log(responseJson);
+                    kerro(responseJson);
+            })
+            .catch(function(error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+                    console.log(error); 
+            });
+            
+
 
 
 
