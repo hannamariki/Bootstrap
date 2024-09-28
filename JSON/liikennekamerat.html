@@ -20,6 +20,7 @@
                 return response.json();
             })
             .then(function(data) {
+                console.log(data);
                     haeKuva(data);
             })
             .catch(function(error) {

@@ -36,8 +36,8 @@
                                         var vika = data[i].timeTableRows.length - 1; 
                                         var pvm = data[i].timeTableRows[j].scheduledTime;
                                         var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
-                                        var lahtoaika = data[i].timeTableRows[0].scheduledDeparture; 
-                                        var saapumisaika = data[i].timeTableRows[vika].scheduledArrival; 
+                                        var lahtoaika = data[i].timeTableRows[0].scheduledTime; 
+                                        var saapumisaika = data[i].timeTableRows[vika].actualTime; 
 
                                         teksti += "<h4>Juna nro " + data[i].trainNumber + "</h4>";
                                         teksti += "<p>Junan tyyppi: " + data[i].trainType + "</p>";
