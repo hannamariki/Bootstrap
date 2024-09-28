@@ -11,55 +11,51 @@
         <button onclick="navigateToLiikennekamerat()">Liikennekamerat</button>
         <div id="vastaus"></div>
         
-
         <script>
-         fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/tpe?departing_trains=10&include_nonstopping=false')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
+            fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/tpe?departing_trains=10&include_nonstopping=false')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
                     haeKuva(data);
-            })
-            .catch(function(error) {
-                document.getElementById("vastaus").innerHTML =
-                    "<p>Tietoa ei pystytä hakemaan</p>";
+                })
+                .catch(function(error) {
+                    document.getElementById("vastaus").innerHTML =
+                        "<p>Tietoa ei pystytä hakemaan</p>";
                     console.log(error); 
-            });
+                });
             
-            function haeKuva(data){
+            function haeKuva(data) {
                 var teksti = "";
+                for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < data[i].timeTableRows.length; j++) {
+                        if (data[i].timeTableRows[j].stationShortCode == "TPE") {
+                            if (data[i].timeTableRows[j].type == "DEPARTURE") {
+                                if (data[i].trainCategory == "Long-distance") {
+                                    if (data[i].timeTableRows[0].stationShortCode == "HKI") {
+                                        var vika = data[i].timeTableRows.length - 1; 
+                                        var pvm = data[i].timeTableRows[j].scheduledTime;
+                                        var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
+                                        var lahtoaika = data[i].timeTableRows[0].scheduledDeparture; 
+                                        var saapumisaika = data[i].timeTableRows[vika].scheduledArrival; 
 
-                for (var i = 0; i < data.length; i++){
-                    for (var j = 0; j < data[i].timeTableRows.length; j++){
-                        if (data[i].timeTableRows[j].stationShortCode=="TPE"){
-                            if (data[i].timeTableRows[j].type=="DEPARTURE"){
-                                if (data[i].trainCategory == "Long-distance"){
-                                   if (data[i].timeTableRows[0].stationShortCode =="HKI"){
-                                    var vika = data[i].timeTableRows.length - 1; 
-                                    var pvm = data[i].timeTableRows[j].scheduledTime;
-                                    var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11,5);
-
-                                    teksti += "<h4>Juna nro " + data[i].trainNumber + "</h4>";
-                                    teksti += "<p>Junan tyyppi: " + data[i].trainType + "</p>";
-                                    teksti += "<p>Lähtee Helsingistä " + lahtoaika + ". Saapuu Tampereelle " + saapumisaika + "</p>";
-
-                                   }
+                                        teksti += "<h4>Juna nro " + data[i].trainNumber + "</h4>";
+                                        teksti += "<p>Junan tyyppi: " + data[i].trainType + "</p>";
+                                        teksti += "<p>Lähtee Helsingistä " + lahtoaika + ". Saapuu Tampereelle " + saapumisaika + "</p>";
+                                    }
                                 }
                             }
-
-
                         }
                     }
                 }
+
+                // Näytetään kerätty teksti
                 document.getElementById("vastaus").innerHTML = teksti;
             }
 
             function navigateToLiikennekamerat() {
                 window.location.href = "liikennekamerat.html";
-}
-
+            }
         </script>
-
-</body>
+    </body>
 </html>
-
