@@ -35,8 +35,8 @@
                                     if (data[i].timeTableRows[0].stationShortCode == "HKI") {
                                         var lahtoPvm = data[i].timeTableRows[j].scheduledTime;
                                         var saapumisPvm = data[i].timeTableRows[j].scheduledTime;
-                                        var lahtoAika = lahtoPvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
-                                        var saapumisAika = saapumisPvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
+                                        var lahtoAika = lahtoPvm.substr(0, 10) + " kello: " + lahtoPvm.substr(11, 5);
+                                        var saapumisAika = saapumisPvm.substr(0, 10) + " kello: " + saapumisPvm.substr(11, 5);
 
                                         teksti += "<h4>Juna nro " + data[i].trainNumber + "</h4>";
                                         teksti += "<p>Junan tyyppi: " + data[i].trainType + "</p>";
