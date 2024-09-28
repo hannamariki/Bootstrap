@@ -6,12 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div id="vastaus"></div>
-        <button onclick="navigateToJunat()">Junat</button>
 
+        <button onclick="navigateToJunat()">Junat</button>
         <h1>Autolla Tampereelle</h1>
         <p>Millainen keli siellä on?</p>
 
+        <div id="vastaus"></div>
+        
         <script>
 
         fetch('https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data')
