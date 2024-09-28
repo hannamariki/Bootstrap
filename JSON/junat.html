@@ -8,31 +8,34 @@
     <body>
         <h1>Mennäänkö junalla Tampereelle?</h1>
         <p>Kuinka usein junia menee?</p>
-        <button onclick="navigateToLiikennekamerat()">Liikennekamerat</button>
+        <button onclick="navigateToLiikennekamerat()">Liikennekamerat</button> <!--navigaatio liikennekamera sivulle-->
         <div id="vastaus"></div>
         
         <script>
+            //haetaan junien tiedot 
             fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/tpe?departing_trains=10&include_nonstopping=false')
                 .then(function(response) {
                     return response.json();
                 })
                 .then(function(data) {
-                    haeJuva(data);
+                    haeJuna(data);
                 })
                 .catch(function(error) {
                     document.getElementById("vastaus").innerHTML =
                         "<p>Tietoa ei pystytä hakemaan</p>";
                     console.log(error); 
                 });
-            
-            function haeJuva(data) {
+            //näytetään junien tiedot
+            function haeJuna(data) {
                 var teksti = "";
-                for (var i = 0; i < data.length; i++) {
-                    for (var j = 0; j < data[i].timeTableRows.length; j++) {
-                        if (data[i].timeTableRows[j].stationShortCode == "TPE") {
-                            if (data[i].timeTableRows[j].type == "DEPARTURE") {
-                                if (data[i].trainCategory == "Long-distance") {
-                                    if (data[i].timeTableRows[0].stationShortCode == "HKI") {
+                for (var i = 0; i < data.length; i++) {//etsitään jokainen juna silmukalla
+                    for (var j = 0; j < data[i].timeTableRows.length; j++) { //etsitään junien aikataulut
+                        if (data[i].timeTableRows[j].stationShortCode == "TPE") {//onko juna matkalla Tamnpereelle
+                            if (data[i].timeTableRows[j].type == "DEPARTURE") { //tarkistetaan onko kyseessä lähtevä juna
+                                if (data[i].trainCategory == "Long-distance") { //tarkastetaan onko kyseessä pitkänmatkan juna
+                                    if (data[i].timeTableRows[0].stationShortCode == "HKI") { //lähteekö juna Helsingistä
+
+                                        //etsitään ja muotoillaan junien lähtö- ja saapumisajat
                                         var lahtoPvm = data[i].timeTableRows[j].scheduledTime;
                                         var saapumisPvm = data[i].timeTableRows[j].scheduledTime;
                                         var lahtoAika = lahtoPvm.substr(0, 10) + " kello: " + lahtoPvm.substr(11, 5);

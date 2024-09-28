@@ -7,14 +7,14 @@
     </head>
     <body>
 
-        <button onclick="navigateToJunat()">Junat</button>
+        <button onclick="navigateToJunat()">Junat</button> <!--navigaatio junat sivulle-->
         <h1>Autolla Tampereelle</h1>
         <p>Millainen keli siellä on?</p>
 
         <div id="vastaus"></div>
         
         <script>
-
+            //haetaan liikennetietoja kamerasta
         fetch('https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data')
             .then(function(response) {
                 return response.json();
@@ -28,11 +28,11 @@
                     "<p>Tietoa ei pystytä hakemaan</p>";
                     console.log(error); 
             });
-
+            //kutsutaan liikennekamerasta tietoja 
                 function haeKuva(data){
                     var teksti = ""; 
                     var kuva = data.presets;
-
+            //etsitään liikennekamerasta saaduilla tiedoilla id:tä vastaavia kuvia
                 for (var i = 0; i < kuva.length; i++){
 
                     teksti += "<h3>" + kuva[i].measuredTime + "</h3>";

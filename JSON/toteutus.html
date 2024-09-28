@@ -8,9 +8,9 @@
 </head>
 <body>
     <div id="vastaus"></div>
-    <button onclick="navigateToKurssi()">Siirry kurssi-sivulle tästä</button>
+    <button onclick="navigateToKurssi()">Siirry kurssi-sivulle tästä</button><!--navigaatiolinkki-->
     <script>
-       
+       //haetaan JSON tiedosto
         fetch('https://hannamariki.github.io/JSON/toteutus.JSON')
         .then(function(response) {
             return response.json(); 
@@ -24,13 +24,13 @@
                 "<p>Tietoa ei pystytä hakemaan</p>"; 
             console.log(error); 
         });
-
+        //käsittelee JSON tiedoston ja näyttää sen html sivulla
         function kerro(data) {
             var teksti = "<h1>" + data.toteutus.nimi + "</h1>";  
             teksti += "<p>Osallistujien lukumäärä: " + data.toteutus.osallistujat.lukumaara + "</p>"; 
             teksti += "<p>Osallistujien nimet:</p>";
             teksti += "<ul>"; 
-            for (var i = 0; i < data.toteutus.osallistujat.nimet.length; i++) {
+            for (var i = 0; i < data.toteutus.osallistujat.nimet.length; i++) { //käydään läpi osallistujat ja lisätään listaan
                 teksti += "<li>" + data.toteutus.osallistujat.nimet[i] + "</li>"; 
             }
             teksti += "</ul>"; 

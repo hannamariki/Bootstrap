@@ -13,11 +13,11 @@
 
    
     <div class="container">
-        <div id="helsinki" class="kaupunki">
+        <div id="helsinki" class="kaupunki"> <!--asetetaan id Helsingille-->
             <h2>Helsinki</h2>
             <ul></ul>
         </div>
-        <div id="tampere" class="kaupunki">
+        <div id="tampere" class="kaupunki"><!--asetetaan id Tampereelle-->
             <h2>Tampere</h2>
             <ul></ul>
         </div>
@@ -26,6 +26,7 @@
     <button onclick="navigateToTapahtumat()">Tapahtumat</button>
 
     <script>
+    //haetaan säätiedot apista
     function haeSaa(kaupunki, id) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lang=fi&q=${kaupunki}&units=metric&APPID=314de1b8dabfbace7321a5ff474e27d1`)
         .then(function(response) {
@@ -41,7 +42,7 @@
             console.log(error); 
         });
     }
-
+    //käsitellään tiedot ja näytetään html sivulla
     function saa(data, id) {
         var teksti = "";
 
@@ -55,8 +56,8 @@
         document.querySelector(`#${id} ul`).innerHTML = teksti;
     }
 
-    haeSaa("helsinki", "helsinki");
-    haeSaa("tampere", "tampere");
+    haeSaa("helsinki", "helsinki"); //haetaan apista tiedot Helsingin säästä
+    haeSaa("tampere", "tampere");//haetaan apista tiedot Tamppereen säästä
 
     function navigateToTapahtumat() {
         window.location.href = "tapahtumat.html";
