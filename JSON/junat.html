@@ -17,7 +17,7 @@
                     return response.json();
                 })
                 .then(function(data) {
-                    haeKuva(data);
+                    haeJuva(data);
                 })
                 .catch(function(error) {
                     document.getElementById("vastaus").innerHTML =
@@ -25,7 +25,7 @@
                     console.log(error); 
                 });
             
-            function haeKuva(data) {
+            function haeJuva(data) {
                 var teksti = "";
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < data[i].timeTableRows.length; j++) {
