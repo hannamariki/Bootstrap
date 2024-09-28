@@ -9,7 +9,20 @@
         <div id="vastaus"></div>
         <button onclick="navigateToToteutus()">Siirry toteutukselle tästä</button>
         <script>
-   
+            fetch('https://hannamariki.github.io/JSON/kurssi.JSON')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(responseJson) {
+                console.log(responseJson);
+                    kerro(responseJson);
+            })
+            .catch(function(error) {
+                document.getElementById("vastaus").innerHTML =
+                    "<p>Tietoa ei pystytä hakemaan</p>";
+                    console.log(error); 
+            });
+
             function kerro(data){
 
                     var teksti = "<h1>" + data.otsikko + "</h1>";
@@ -36,21 +49,6 @@
                 document.getElementById("vastaus").innerHTML = teksti;
                    
                                 }
-
-                                fetch('https://hannamariki.github.io/JSON/kurssi.JSON')
-                                .then(function(response) {
-                                    return response.json();
-                                })
-                                .then(function(responseJson) {
-                                    console.log(responseJson);
-                                        kerro(responseJson);
-                                })
-                                .catch(function(error) {
-                                    document.getElementById("vastaus").innerHTML =
-                                        "<p>Tietoa ei pystytä hakemaan</p>";
-                                        console.log(error); 
-                                });
-
                                 function navigateToToteutus() {
                 window.location.href = "toteutus.html";
         }
