@@ -8,7 +8,7 @@
     </head>
     <body><!--Navipalkki-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navigaatio</a>
+            <a class="navbar-brand" href="#">Oppimistehtävä 3 JSON </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,7 +37,6 @@
         </nav>
 
         <div id="vastaus"></div>
-        <button onclick="navigateToToteutus()">Siirry toteutukselle tästä</button><!--navigaatiolinkki toteutus sivulle-->
         <script>
             //haetaan JSON-tiedosto 
             fetch('https://hannamariki.github.io/JSON/kurssi.JSON')
@@ -80,9 +79,7 @@
                 document.getElementById("vastaus").innerHTML = teksti;
                    
                                 }
-                                function navigateToToteutus() {
-                window.location.href = "toteutus.html";
-        }
+    
         </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

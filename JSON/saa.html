@@ -10,29 +10,29 @@
 <body>
     <!--Navipalkki-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navigaatio</a>
+        <a class="navbar-brand" href="#">Oppimistehtävä 3 JSON </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="kurssi.html" target="_blank">Kurssi</a> <!-- Avaa uuden välilehden -->
+                    <a class="nav-link" href="kurssi.html" target="_blank">Kurssi</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="toteutus.html" target="_blank">Toteutus</a> <!-- Avaa uuden välilehden -->
+                    <a class="nav-link" href="toteutus.html" target="_blank">Toteutus</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tapahtumat.html" target="_blank">Tapahtumat</a> <!-- Avaa uuden välilehden -->
+                    <a class="nav-link" href="tapahtumat.html" target="_blank">Tapahtumat</a> 
                 </li>
                 <li class="nav-item"></li>
-                    <a class="nav-link" href="saa.html" target="_blank">Sää</a> <!-- Avaa uuden välilehden -->
+                    <a class="nav-link" href="saa.html" target="_blank">Sää</a> 
                 </li>
                 <li class="nav-item"></li>
-                    <a class="nav-link" href="liikennekamerat.html" target="_blank">Liikennekamerat</a> <!-- Avaa uuden välilehden -->
+                    <a class="nav-link" href="liikennekamerat.html" target="_blank">Liikennekamerat</a> 
                 </li>
                 <li class="nav-item"></li>
-                    <a class="nav-link" href="junat.html" target="_blank">Junat</a> <!-- Avaa uuden välilehden -->
+                    <a class="nav-link" href="junat.html" target="_blank">Junat</a> 
                 </li>
             </ul>
         </div>
@@ -52,8 +52,6 @@
             <ul></ul>
         </div>
     </div>
-
-    <button onclick="navigateToTapahtumat()">Tapahtumat</button>
 
     <script>
     //haetaan säätiedot apista
@@ -89,9 +87,6 @@
     haeSaa("helsinki", "helsinki"); //haetaan apista tiedot Helsingin säästä
     haeSaa("tampere", "tampere");//haetaan apista tiedot Tamppereen säästä
 
-    function navigateToTapahtumat() {
-        window.location.href = "tapahtumat.html";
-    }
     </script>
            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
