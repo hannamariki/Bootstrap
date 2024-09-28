@@ -18,9 +18,8 @@
             .then(function(response) {
                 return response.json();
             })
-            .then(function(responseJson) {
-                console.log(responseJson);
-                    kerro(responseJson);
+            .then(function(data) {
+                    kuva(data);
             })
             .catch(function(error) {
                 document.getElementById("vastaus").innerHTML =
