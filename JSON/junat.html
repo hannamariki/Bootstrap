@@ -33,15 +33,14 @@
                             if (data[i].timeTableRows[j].type == "DEPARTURE") {
                                 if (data[i].trainCategory == "Long-distance") {
                                     if (data[i].timeTableRows[0].stationShortCode == "HKI") {
-                                        var vika = data[i].timeTableRows.length - 1; 
-                                        var pvm = data[i].timeTableRows[j].scheduledTime;
-                                        var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
-                                        var lahtoaika = data[i].timeTableRows[0].scheduledTime; 
-                                        var saapumisaika = data[i].timeTableRows[vika].actualTime; 
+                                        var lahtoPvm = data[i].timeTableRows[j].scheduledTime;
+                                        var saapumisPvm = data[i].timeTableRows[j].scheduledTime;
+                                        var lahtoAika = lahtoPvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
+                                        var saapumisAika = saapumisPvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
 
                                         teksti += "<h4>Juna nro " + data[i].trainNumber + "</h4>";
                                         teksti += "<p>Junan tyyppi: " + data[i].trainType + "</p>";
-                                        teksti += "<p>Lähtee Helsingistä " + lahtoaika + ". Saapuu Tampereelle " + saapumisaika + "</p>";
+                                        teksti += "<p>Lähtee Helsingistä" + lahtoAika+ ". Saapuu Tampereelle" + saapumisAika + "</p>";
                                     }
                                 }
                             }
@@ -49,7 +48,7 @@
                     }
                 }
 
-                // Näytetään kerätty teksti
+        
                 document.getElementById("vastaus").innerHTML = teksti;
             }
 
