@@ -31,8 +31,8 @@
                         teksti = teksti + "<h3>Opintojakso: " + data.opintojakso.nimi + " " + data.opintojakso.tunnus + " " + data.opintojakso.opintopisteet + " op"+"</h3>";
                         teksti = teksti + "<ul>"
                           
-                            for (var i = 0; i < data.opintojakso.sisalto.length; i++) {
-                            teksti += "<li>" + data.opintojakso.sisalto[i] + "</li>"
+                            for (var i = 0; i < data.sisalto.length; i++) {
+                            teksti += "<li>" + data.sisalto[i] + "</li>"
                             }
 
                             teksti += "</ul>";
