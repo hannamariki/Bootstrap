@@ -39,6 +39,10 @@
 
     <div class="col-sm-8">
       <h2>Taideteokset inspiraation lähteenä</h2>
+      <div class="row" id="taideteokset"></div> 
+    </div>
+  </div>
+</div>
      
 <script>
   let teosId = [];
@@ -81,7 +85,7 @@
 
           }
 
-          function taideTeokset(){
+          function taideTeokset(tiedot){
             const teokset = document.getElementById('taideteokset');
             const kortti =  `
                 <div class="col-md-4">
