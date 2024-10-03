@@ -48,7 +48,7 @@
       return response.json();
     })
     .then(function(data) {
-      teosId = data.objectIDs.slice(0, 5); // ensimmäiset 5 teosta
+      teosId = data.objectIDs.slice(0, 3); // ensimmäiset 5 teosta
       satunnaisetTeokset(); // valitaan satunnaisesti
     })
     .catch(function(error) {
@@ -77,7 +77,7 @@
 
   function satunnaisTeosID() { // haetaan 5 ensimmäistä satunnaista teosta
     const sekoitus = teosId.sort(() => 0.5 - Math.random());
-    return sekoitus.slice(0, 5);
+    return sekoitus.slice(0, 3);
   }
 
   function taideTeokset(tiedot) { // Ota vastaan tiedot
