@@ -45,65 +45,62 @@
      
 <script>
   let teosId = [];
-  fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      teosId = data.objectIDs.slice(0, 3); // ensimmäiset 5 teosta
-      satunnaisetTeokset(); // valitaan satunnaisesti
-    })
-    .catch(function(error) {
-      console.error('Virhe tiedon hakemisessa:', error);
-      document.getElementById("taideteokset").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-    });
+fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?q=paintings&hasImages=true')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    teosId = data.objectIDs.slice(0, 100); // Valitaan 100 maalausta ja satunnaistetaan myöhemmin
+    satunnaisetTeokset(); // Näytetään aluksi satunnaisia
+  })
+  .catch(function(error) {
+    console.error('Virhe tiedon hakemisessa:', error);
+    document.getElementById("taideteokset").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+  });
 
-  function satunnaisetTeokset() {
-    const teokset = document.getElementById('taideteokset');
-    teokset.innerHTML = ''; 
+function satunnaisetTeokset() {
+  const teokset = document.getElementById('taideteokset');
+  teokset.innerHTML = ''; 
 
-    const satunnaisID = satunnaisTeosID(); 
-    satunnaisID.forEach(id => {
-      fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(tiedot) {
+  const satunnaisID = satunnaisTeosID(); 
+  satunnaisID.forEach(id => {
+    fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(tiedot) {
+        if (tiedot.objectName === 'Painting') { // Vain taideteokset
           taideTeokset(tiedot);
-        })
-        .catch(function(error) { 
-          console.error('Virhe tiedon hakemisessa:', error);
-        });
-    });
-  }
+        }
+      })
+      .catch(function(error) { 
+        console.error('Virhe tiedon hakemisessa:', error);
+      });
+  });
+}
 
-  function satunnaisTeosID() { // haetaan 5 ensimmäistä satunnaista teosta
-    const sekoitus = teosId.sort(() => 0.5 - Math.random());
-    return sekoitus.slice(0, 3);
-  }
+function satunnaisTeosID() { // Haetaan 5 ensimmäistä satunnaista teosta
+  const sekoitus = teosId.sort(() => 0.5 - Math.random());
+  return sekoitus.slice(0, 3);
+}
 
-  function taideTeokset(tiedot) { // Ota vastaan tiedot
-    const teokset = document.getElementById('taideteokset');
-    const kortti =  `
-      <div class="col-md-4">
-        <div class="card">
-          <img src="${tiedot.primaryImageSmall || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${tiedot.title}">
-          <div class="card-body">
-            <h5 class="card-title">${tiedot.title}</h5>
-            <p class="card-text">Tekijä: ${tiedot.artistDisplayName || 'Tuntematon'}</p>
-          </div>
+function taideTeokset(tiedot) { // Ota vastaan tiedot
+  const teokset = document.getElementById('taideteokset');
+  const kortti =  `
+    <div class="col-md-4">
+      <div class="card">
+        <img src="${tiedot.primaryImageSmall || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${tiedot.title}">
+        <div class="card-body">
+          <h5 class="card-title">${tiedot.title}</h5>
+          <p class="card-text">Tekijä: ${tiedot.artistDisplayName || 'Tuntematon'}</p>
         </div>
       </div>
-    `;
-    teokset.innerHTML += kortti; // Lisää kortti konttiin
-  }
-</script>
-      
-<div class="mt-5 p-4 bg-dark text-white text-center">
-  <div class="text-center p-3">
-    © 2024 MET Art Gallery | Powered by MET Collection API
-  </div>
-</div>
+    </div>
+  `;
+  teokset.innerHTML += kortti; // Lisää kortti konttiin
+}
 
-</body>
-</html>
+
+document.getElementById('vaihdaTeokset').addEventListener('click', function() {
+  satunnaisetTeokset(); 
+});
