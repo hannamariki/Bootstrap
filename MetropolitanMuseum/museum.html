@@ -23,7 +23,7 @@
   </div>
 </nav>
 
-<div class="container mt-5"></div>
+<div class="container mt-5">
   <div class="row">
     <div class="col-sm-4">
       <h2>Sivuston esittely</h2>
@@ -36,6 +36,8 @@
   <div class="row" id="taideteokset"></div> 
   <button id="vaihdaTeokset" class="btn btn-primary mt-3">Vaihda teokset</button>
 </div>
+</div>
+</div>
      
 <script>
   let teosId = [];
@@ -44,7 +46,7 @@
       return response.json();
     })
     .then(function(data) {
-      teosId = data.objectIDs.slice(0, 3); // Valitaan 3 maalausta
+      teosId = data.objectIDs.slice(0, 10); 
       satunnaisetTeokset(); // Näytetään satunnaisia maalauksia
     })
     .catch(function(error) {
@@ -91,7 +93,7 @@
       </div>
     </div>
   `;
-    teokset.innerHTML += kuvaHtml; // Lisää kuva konttiin
+    teokset.innerHTML += kortti; // Lisää kuva konttiin
   }
 
   document.getElementById('vaihdaTeokset').addEventListener('click', function() {
