@@ -46,8 +46,8 @@
       return response.json();
     })
     .then(function(data) {
-      teosId = data.objectIDs.slice(0, 100); 
-      satunnaisetTeokset(); // Näytetään satunnaisia maalauksia
+      teosId = data.objectIDs.slice(0, 10); 
+      satunnaisetTeokset(teosID); // Näytetään satunnaisia maalauksia
     })
     .catch(function(error) {
       console.error('Virhe tiedon hakemisessa:', error);
@@ -58,7 +58,7 @@
     const teokset = document.getElementById('taideteokset');
     teokset.innerHTML = ''; 
 
-    const satunnaisID = satunnaisTeosID(); 
+    const satunnaisID = satunnaisTeosID(teosId); 
     satunnaisID.forEach(id => {
       fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
         .then(function(response) {
