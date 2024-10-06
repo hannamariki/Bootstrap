@@ -46,7 +46,7 @@
       return response.json();
     })
     .then(function(data) {
-      teosId = data.objectIDs.slice(0, 10); 
+      teosId = data.objectIDs.slice(0, 100); 
       satunnaisetTeokset(); // Näytetään satunnaisia maalauksia
     })
     .catch(function(error) {
@@ -81,11 +81,12 @@
   }
 
   function naytaKuva(tiedot) { // Näytetään vain kuva
+    if (tiedot.primaryImagesmall){
     const teokset = document.getElementById('taideteokset');
     const kortti =  `
     <div class="col-md-4">
       <div class="card">
-        <img src="${tiedot.primaryImageSmall || 'https://via.placeholder.com/150?text=Ei+Kuvaa'}" class="card-img-top" alt="${tiedot.title}">
+        <img src="${tiedot.primaryImageSmall}" class="card-img-top" alt="${tiedot.title}">
         <div class="card-body">
           <h5 class="card-title">${tiedot.title}</h5>
           <p class="card-text">Tekijä: ${tiedot.artistDisplayName}</p>
@@ -95,6 +96,7 @@
   `;
     teokset.innerHTML += kortti; // Lisää kuva konttiin
   }
+}
 
   document.getElementById('vaihdaTeokset').addEventListener('click', function() {
     satunnaisetTeokset(); // Vaihda teokset
