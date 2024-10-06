@@ -47,7 +47,7 @@
     })
     .then(function(data) {
       teosId = data.objectIDs.slice(0, 10); 
-      satunnaisetTeokset(teosID); // Näytetään satunnaisia maalauksia
+      satunnaisetTeokset(teosId); // Näytetään satunnaisia maalauksia
     })
     .catch(function(error) {
       console.error('Virhe tiedon hakemisessa:', error);
