@@ -80,11 +80,17 @@
 
   function naytaKuva(tiedot) { // Näytetään vain kuva
     const teokset = document.getElementById('taideteokset');
-    const kuvaHtml = `
-      <div class="col-md-4">
-        <img src="${tiedot.primaryImageSmall || 'https://via.placeholder.com/150'}" class="img-fluid" alt="Painting">
+    const kortti =  `
+    <div class="col-md-4">
+      <div class="card">
+        <img src="${tiedot.primaryImageSmall || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${tiedot.title}">
+        <div class="card-body">
+          <h5 class="card-title">${tiedot.title}</h5>
+          <p class="card-text">Tekijä: ${tiedot.artistDisplayName || 'Tuntematon'}</p>
+        </div>
       </div>
-    `;
+    </div>
+  `;
     teokset.innerHTML += kuvaHtml; // Lisää kuva konttiin
   }
 
