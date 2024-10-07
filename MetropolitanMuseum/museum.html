@@ -40,7 +40,7 @@
   let teoksetId = [];
 
   function haeTeokset() {
-    fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true')
+    fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects')
       .then(response => response.json())
       .then(data => {
         if (data.objectIDs && data.objectIDs.length > 0) {
@@ -65,6 +65,7 @@
       fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
         .then(response => response.json())
         .then(tiedot => {
+          console.log(tiedot);
           // Varmistetaan, että kyseessä on maalaus ja että kuva on saatavilla
           if (tiedot.objectName === 'Painting' && tiedot.primaryImageSmall) { 
             naytaKuva(tiedot);
@@ -82,20 +83,27 @@
   }
 
   function naytaKuva(tiedot) {
-    const teokset = document.getElementById('taideteokset');
-    const kortti =  `
-      <div class="col-md-4">
-        <div class="card">
-          <img src="${tiedot.primaryImageSmall}" class="card-img-top" alt="${tiedot.title || 'Tuntematon'}">
-          <div class="card-body">
-            <h5 class="card-title">${tiedot.title || 'Tuntematon nimi'}</h5>
-            <p class="card-text">Tekijä: ${tiedot.artistDisplayName || 'Tuntematon'}</p>
-          </div>
-        </div>
-      </div>
-    `;
-    teokset.innerHTML += kortti; // Lisää kuva korttiin
-  }
+    console.log("Näytetään kuva teokselle:", tiedot.title); // Debugging
+    console.log("Kuvan URL:", tiedot.primaryImageSmall); // Debugging
+
+    if (tiedot.primaryImageSmall) {
+        const teokset = document.getElementById('taideteokset');
+        const kortti = `
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="${tiedot.primaryImageSmall}" class="card-img-top" alt="${tiedot.title || 'Tuntematon'}">
+                    <div class="card-body">
+                        <h5 class="card-title">${tiedot.title || 'Tuntematon nimi'}</h5>
+                        <p class="card-text">Tekijä: ${tiedot.artistDisplayName || 'Tuntematon'}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        teokset.insertAdjacentHTML('beforeend', kortti); // Lisää kuva korttiin
+    } else {
+        console.log("Ei kuvaa saatavilla teokselle:", tiedot.title); // Debugging
+    }
+}
 
   window.onload = function() {
     haeTeokset();
