@@ -46,7 +46,7 @@
 
   function haeHakusanalla(hakusana){
   let teosId = [];
-  fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?q=paintings&hasImages=true')
+  fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?q=${hakusana}&hasImages=true')
     .then(function(response) {
       return response.json();
     })
