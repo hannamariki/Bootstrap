@@ -53,7 +53,7 @@
     .then(function(data) {
       if (data.objectIDs){
       teoksetId = data.objectIDs; // haetaan kaikki teokset hakusanalla
-      satunnaisetTeokset(teoksetID);
+      satunnaisetTeokset(teoksetId);
       }else{
         document.getElementById("taideteokset").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
       }
