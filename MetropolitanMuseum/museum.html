@@ -41,18 +41,17 @@
 </div>
      
 <script>
-  let hakusana = "";
   let teoksetId = [];
 
   function haeHakusanalla(hakusana){
   let teosId = [];
-  fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?q=${hakusana}&hasImages=true')
+  fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=paintings')
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      if (data.objectIDs){
-      teoksetId = data.objectIDs; // haetaan kaikki teokset hakusanalla
+      if (data.objectIDs && data.objectIDs.length > 0) {
+      teoksetId = data.objectIDs; 
       satunnaisetTeokset(teoksetId);
       }else{
         document.getElementById("taideteokset").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
@@ -64,12 +63,12 @@
     });
   }
 
-  function satunnaisetTeokset() {
+  function satunnaisetTeokset(teoksetId) {
     const teokset = document.getElementById('taideteokset');
     teokset.innerHTML = ''; 
 
-    const satunnaisID = satunnaisTeosID(teosId, 3); 
-    satunnaisID.forEach(id => {
+    const satunnaisId = satunnaisTeosId(teoksetId, 3); 
+    satunnaisId.forEach(id => {
       fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
         .then(function(response) {
           return response.json();
@@ -85,7 +84,7 @@
     });
   }
 
-  function satunnaisTeosID(teosId, maara) { // Haetaan 3 ensimmäistä satunnaista teosta
+  function satunnaisTeosId(teosId, maara) { // Haetaan 3 ensimmäistä satunnaista teosta
     const sekoitus = teosId.sort(() => 0.5 - Math.random());
     return sekoitus.slice(0, maara);
   }
@@ -107,15 +106,9 @@
     teokset.innerHTML += kortti; // Lisää kuva korttiin
   }
 }
-
-  document.getElementById('haeTeokset').addEventListener('click', function() {
-      hakusana = document.getElementById('hakusana').value; 
-      if (hakusana) {
-        haeTeoksetHakusanalla(hakusana); 
-     } else {
-        alert('Please enter a keyword!');
-      }
-    });
+    window.onload = function() {
+        haeTeokset();
+      };
 
 
   document.getElementById('vaihdaTeokset').addEventListener('click', function() {
