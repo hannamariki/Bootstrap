@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Metropolitan Museum of Art</title>
+  <!--Tyylit-->
+  <title>Taideteokset ispiraation lähteenä</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,12 +11,12 @@
   <link rel="stylesheet" type="text/css" href="tyylit.css">
 </head>
 <body>
-
+<!--Ylätunniste ja otsikko-->
 <div class="p-5 bg-primary text-white text-center">
   <h1>Taideteokset inspiraation lähteenä</h1>
   <P>The Metropolitan Museum of Art Collection</P>
 </div>
-
+<!--Navigointi valikko-->
 <nav class="navbar navbar-expand-sm">
   <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,13 +25,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
               <li class="nav-item">
-                  <a class="navbar-brand" href="https://www.metmuseum.org/art/collection" target="_blank">MET Art Gallery</a>
+                  <a class="navbar-brand" href="https://www.metmuseum.org/art/collection" target="_blank">MET Art Gallery</a><!--Linkki METAn sivuille-->
               </li>
               <li class="nav-item">
-                  <a class="navbar-brand" href="https://www.artists.fi/fi" target="_blank">Suomen Taiteilijaseura</a>
+                  <a class="navbar-brand" href="https://www.artists.fi/fi" target="_blank">Suomen Taiteilijaseura</a><!--Linkki Suomen taiteilijaseuran sivuille-->
               </li>
               <li class="nav-item">
-                  <a class="navbar-brand" href="#palaute">Anna palautetta</a>
+                  <a class="navbar-brand" href="#palaute">Anna palautetta</a><!--Linkki palautelomakkeeseen-->
               </li>
           </ul>
       </div>
@@ -38,7 +39,7 @@
 </nav>
 
 
-
+<!--Infoteksti-->
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-4">
@@ -62,12 +63,12 @@
 
     <div class="col-sm-8">
       <div class="row" id="taideteokset"></div> 
-      <button id="vaihdaTeokset" class="btn btn-primary mt-3">Vaihda teokset</button>
+      <button id="vaihdaTeokset" class="btn btn-primary mt-3">Vaihda teokset</button><!--Painike teoksien vaihtumiseen-->
     </div>
   </div>
 </div>
  
-
+<!--Haetaan taideteoksen MET API:n kautta, teokset pitää MET:n mukaan hakea kahdella kutsulla. ensimmäisellä kutsulla haetaan teokset-->
 <script>
   let teoksetId = [];
 
@@ -87,7 +88,7 @@
         document.getElementById("taideteokset").innerHTML = "<p>Tietoa ei pystytä hakemaan.</p>";
       });
   }
-
+/* toisella kutsulla valitaan ja näytetään teokset*/
   function satunnaisetTeokset(teoksetId) {
     const teokset = document.getElementById('taideteokset');
     teokset.innerHTML = '';  
@@ -109,12 +110,12 @@
             });
     });
 }
-
+/*Valitaan satunnaiset teokset*/
   function satunnaisTeosId(teoksetId, maara) {
     const sekoitus = teoksetId.sort(() => 0.5 - Math.random());
     return sekoitus.slice(0, maara);
   }
-
+/* näytetään teokset korteissa*/
   function naytaKuva(tiedot) {
     const teokset = document.getElementById('taideteokset');
         const kortti = `
@@ -132,11 +133,11 @@
         teokset.insertAdjacentHTML('beforeend', kortti); 
     } 
 
-
+/*alkusivun latauksessa haetut teokset*/
   window.onload = function() {
     haeTeokset();
   };
-
+/*vaihda teokset -painikkeen toiminto*/
   document.getElementById('vaihdaTeokset').addEventListener('click', function() {
     if (teoksetId.length > 0) {
       satunnaisetTeokset(teoksetId); 
@@ -145,7 +146,7 @@
 </script>
 
 
- <!-- Yhteydenottolomake -->
+ <!-- Palautelomake -->
 <div class="container custom-mt" id="palaute">
   <div class="form-container d-flex flex-column align-items-center" style="margin-bottom: 6rem;">
     <h2>Anna palautetta!</h2>
@@ -192,7 +193,7 @@
   });
 </script>
 
-      
+    <!--footer-->  
 <div class="mt-5 p-4 bg-dark text-white text-center">
   <div class="text-center p-3">
     © 2024 Digitekniikat - DIG007AS2A-3012 Hanna-Mari Kielenniva
