@@ -1,4 +1,54 @@
-.fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
+body {
+  background-color: #f8f9fa; 
+  font-family: 'Arial', sans-serif; 
+}
+
+.p-5.bg-primary {
+  background-color: #343a40; 
+}
+
+.navbar-nav .nav-link {
+  color: black; /* Linkkien väri */
+}
+
+.navbar-toggler-icon {
+  background-color: transparent; /* Hampurilaisvalikon tausta */
+}
+
+.navbar-nav {
+  margin-left: auto; 
+}
+
+.navbar-brand {
+  font-size: 18px; 
+  color: black;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Skaalaa korttia hiirellä */
+}
+
+/* Kuvan tyylit */
+.card-img-top {
+  height: 200px; 
+  object-fit: cover; 
+}
+
+/* Alaosan tyylit */
+.mt-5.p-4.bg-dark {
+  background-color: #212529; 
+}
+
+.text-center {
+  color: #ffffff; 
+}
+
+/* Linkkien tyylit */
+a {
+  color: #007bff; 
+  text-decoration: none; 
+}
+
+a:hover {
+  text-decoration: underline; 
+}
