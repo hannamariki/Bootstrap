@@ -58,24 +58,25 @@
 
   function satunnaisetTeokset(teoksetId) {
     const teokset = document.getElementById('taideteokset');
-    teokset.innerHTML = '';  // Tyhjennetään edelliset teokset
+    teokset.innerHTML = '';  
 
     const satunnaisId = satunnaisTeosId(teoksetId, 3); 
     satunnaisId.forEach(id => {
-      fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
-        .then(response => response.json())
-        .then(tiedot => {
-          console.log(tiedot);
-          // Varmistetaan, että kyseessä on maalaus ja että kuva on saatavilla
-          if (tiedot.objectName === 'Painting' && tiedot.primaryImageSmall) { 
-            naytaKuva(tiedot);
-          }
-        })
-        .catch(error => { 
-          console.error('Virhe tiedon hakemisessa:', error);
-        });
+        fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
+            .then(response => response.json())
+            .then(tiedot => {
+                console.log(tiedot); 
+                if (tiedot.primaryImageSmall) {
+                    naytaKuva(tiedot);
+                } else {
+                    console.log(`Ei kuvaa teokselle: ${tiedot.title || 'Tuntematon'}`);
+                }
+            })
+            .catch(error => { 
+                console.error('Virhe tiedon hakemisessa:', error);
+            });
     });
-  }
+}
 
   function satunnaisTeosId(teoksetId, maara) {
     const sekoitus = teoksetId.sort(() => 0.5 - Math.random());
@@ -83,11 +84,7 @@
   }
 
   function naytaKuva(tiedot) {
-    console.log("Näytetään kuva teokselle:", tiedot.title); // Debugging
-    console.log("Kuvan URL:", tiedot.primaryImageSmall); // Debugging
-
-    if (tiedot.primaryImageSmall) {
-        const teokset = document.getElementById('taideteokset');
+    const teokset = document.getElementById('taideteokset');
         const kortti = `
             <div class="col-md-4">
                 <div class="card">
@@ -95,15 +92,14 @@
                     <div class="card-body">
                         <h5 class="card-title">${tiedot.title || 'Tuntematon nimi'}</h5>
                         <p class="card-text">Tekijä: ${tiedot.artistDisplayName || 'Tuntematon'}</p>
+                        <a href="${tiedot.objectURL}" class="btn btn-primary" target="_blank">Lisätietoja</a>
                     </div>
                 </div>
             </div>
         `;
-        teokset.insertAdjacentHTML('beforeend', kortti); // Lisää kuva korttiin
-    } else {
-        console.log("Ei kuvaa saatavilla teokselle:", tiedot.title); // Debugging
-    }
-}
+        teokset.insertAdjacentHTML('beforeend', kortti); 
+    } 
+
 
   window.onload = function() {
     haeTeokset();
