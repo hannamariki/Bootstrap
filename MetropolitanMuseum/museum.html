@@ -59,7 +59,8 @@
     </div>
   </div>
 </div>
-     
+ 
+
 <script>
   let teoksetId = [];
 
@@ -135,6 +136,55 @@
     }
   });
 </script>
+
+
+ <!-- Yhteydenottolomake -->
+<div class="container custom-mt" id="yhteyttä">
+  <div class="form-container d-flex flex-column align-items-center" style="margin-bottom: 6rem;">
+    <h2>Anna palautetta!</h2>
+    <p>Arvostamme, jos antaisit palautetta sivustostamme, jotta osaamme kehittää ideaa eteenpäin. Palaute annetaan nimettömänä.
+      Mikäli haluat että olemme sinuun yhteydessä palautteen tiimoilta, voit jättää myös yhteystietosi.
+    </p>
+    <form id="palautelomake" class="w-100">
+      <div class="mb-3">
+        <label for="viesti" class="form-label">Vapaa viesti</label>
+        <textarea class="form-control" id="viesti" rows="5" placeholder=""></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Lähetä viesti</button>
+    </form>
+  </div>
+</div>
+
+<!-- Kiitos viesti / pop up ikkuna -->
+<div class="modal fade" id="thanksModal" tabindex="-1" aria-labelledby="thanksModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="thanksModalLabel">Kiitos!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Palautteesi on vastaanotettu. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Lomakkeen käsittely
+  document.getElementById('palautelomake').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      const viesti = document.getElementById('viesti').value;
+      const thanksModal = new bootstrap.Modal(document.getElementById('thanksModal'));
+      thanksModal.show();
+      document.getElementById('viesti').value = '';
+  });
+</script>
+
       
 <div class="mt-5 p-4 bg-dark text-white text-center">
   <div class="text-center p-3">

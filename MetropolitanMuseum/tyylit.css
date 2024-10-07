@@ -1,6 +1,6 @@
 body {
   background-color: #f8f9fa; 
-  font-family: 'Arial', sans-serif; 
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .p-5.bg-primary {
@@ -23,7 +23,9 @@ body {
   font-size: 18px; 
   color: black;
 }
-
+.card {
+  transition: transform 0.5s;
+}
 .card:hover {
   transform: scale(1.05); /* Skaalaa korttia hiirellä */
 }
@@ -51,4 +53,25 @@ a {
 
 a:hover {
   text-decoration: underline; 
+}
+.form-container {
+  max-width: 600px;
+  margin: 0 auto; 
+}
+/*hienosäätö*/
+.custom-mt {
+  margin-top: 6rem; 
+}
+
+.card {
+  margin-bottom: 70px;
+}
+
+@media (max-width: 768px) {
+  .text-content {
+      max-width: 100%; 
+  }
+  .rounded-corner {
+      max-width: 300px; 
+  }
 }
